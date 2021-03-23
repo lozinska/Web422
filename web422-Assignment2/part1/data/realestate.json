@@ -1,0 +1,62 @@
+[
+{
+    "name":"Krystyna Lopez",
+    "employeeId":100,
+    "managerId":1001,
+    "position":"Sales Represantative"
+},
+{
+    "name":"Ysabel Collyns",
+    "employeeId":105,
+    "managerId":1001,
+    "position":"Sales Represantative"
+},
+{
+    "name":"Tremain Cassy",
+    "employeeId":106,
+    "managerId":1002,
+    "position":"Administrator"
+},
+{
+    "name":"Jess Jago",
+    "employeeId":107,
+    "managerId":1002,
+    "position":"Secretary"
+},
+{
+    "name":"Rodi Tank",
+    "employeeId":108,
+    "managerId":1003,
+    "position":"HR recruiter"
+},
+{
+    "name":"Henri Rikard",
+    "employeeId":109,
+    "managerId":null,
+    "position":"General Manager"
+},
+{
+    "name":"Foster Thornburn",
+    "employeeId":101,
+    "managerId":1001,
+    "position":"Sales Represantative"
+},
+{
+    "name":"Emmy Trehearne",
+    "employeeId":102,
+    "managerId":null,
+    "position":"HR manager"
+},
+{
+    "name":"Zonny Laytham",
+    "employeeId":103,
+    "managerId":1001,
+    "position":"Sales Represantative"
+},
+{
+    "name":"Asia Bollon",
+    "employeeId":104,
+    "managerId":1001,
+    "position":"Sales Represantative"
+}
+]

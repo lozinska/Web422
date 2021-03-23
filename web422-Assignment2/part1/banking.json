@@ -1,0 +1,63 @@
+
+[
+    {
+        "name":"TD",
+        "location":"Toronto",
+        "numcust":123456,
+        "establish":1900
+    },
+    {
+        "name":"BMO",
+        "location":"Montreal",
+        "numcust":12345654,
+        "establish":1950
+    },
+    {
+        "name":"RBC",
+        "location":"Toronto",
+        "numcust":45676,
+        "establish":1975
+    },
+    {
+        "name":"Tangerine",
+        "location":"Toronto",
+        "numcust":54321,
+        "establish":2015
+    },
+    {
+        "name":"Capital One",
+        "location":"New York",
+        "numcust":5432167,
+        "establish":1954
+    },
+    {
+        "name":"National Bank",
+        "location":"Vancouver",
+        "numcust":456789,
+        "establish":1923
+    },
+    {
+        "name":"Scotia Bank",
+        "location":"Nova Scotia",
+        "numcust":567890,
+        "establish":1956
+    },
+    {
+        "name":"Bank of America",
+        "location":"New York",
+        "numcust":34567,
+        "establish":1934
+    },
+    {
+        "name":"CIBC",
+        "location":"Edmonton",
+        "numcust":456789,
+        "establish":1934
+    },
+    {
+        "name":"Haventree Bank",
+        "location":"Toronto",
+        "numcust":1234,
+        "establish":2018
+    }
+]

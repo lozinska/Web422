@@ -1,0 +1,16 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: rgb(112, 10, 10);
+$color1:aqua;
+$color2:aquamarine;
+.container {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background: $color1;
+}
+
+.modal-dialog{
+background-color:$color2;
+}
+.container-fluid{
+    background-color:$color2;
+}

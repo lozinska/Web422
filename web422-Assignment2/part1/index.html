@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+<h2>Information about banks, health, education and employees</h2>
+<button type="button" id="bank">Upload Bank Information</button>
+<button type="button" id="education">Upload Education Information</button>
+<button type="button" id="employee">Upload Employee Information</button>
+<button type="button" id="health">Upload Health Information</button>
+
+<span style="float:right;width: 20%;">
+<img src="image/bank.jpg" width="200" height="100" id="bnk">
+<img src="image/education.jpg" width="200" height="100" id="edu">
+<img src="image/employee.jpg" width="200" height="100" id="emp">
+<img src="image/health.jpg" width="200" height="100" id="hlth">
+
+</span>
+
+<br><br>
+<table id="table1"></table>
+    <!-- Latest compiled and minified jQuery 3.2.1 JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified Bootstrap 3.3.7 JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+  
+<script>
+$(document).ready(function(){
+  console.log("work");
+  $("#bank").on("click",(function(event){
+      var table="<tr><th>Bank Name</th><th>Location</th><th>Number of Customers</th><th>Year Established</th></tr>";
+  
+      $.getJSON("banking.json",function(data){
+  $.each(data,function(index,d){
+      table+= "<tr><td>" +d.name +"</td><td>" +
+     d.location +
+      "</td>"+"<td>" +d.numcust+
+      "<td>" +d.establish+"</td></tr>";
+  })
+  $("#table1").empty();
+  $("#table1").append(table);
+      })
+  }))
+  
+  $("#education").on("click",(function(event){
+      var table="<tr><th>First Name</th><th>Last Name</th><th>Age</th><th>GPA</th></tr>";
+  
+      $.getJSON("data/education.json",function(data){
+  $.each(data,function(index,d){
+      table+= "<tr><td>" +d.name +"</td><td>" +
+     d.stdlname +
+      "</td>"+"<td>" +d.age+
+      "<td>" +d.gpa+"</td></tr>";
+  })
+  $("#table1").empty();
+  $("#table1").append(table);
+      })
+  }))
+  
+  $("#employee").on("click",(function(event){
+      var table="<tr><th>First Name</th><th>Employee Id</th><th>Manager Id</th><th>Position</th></tr>";
+  
+      $.getJSON("data/realestate.json",function(data){
+  $.each(data,function(index,d){
+      table+= "<tr><td>" +d.name +"</td><td>" +
+     d.employeeId +
+      "</td>"+"<td>" +d.managerId+
+      "<td>" +d.position+"</td></tr>";
+  })
+  $("#table1").empty();
+  $("#table1").append(table);
+      })
+  }))
+  
+  $("#health").on("click",(function(event){
+      var table="<tr><th>Patient Name</th><th>Health Card Number</th><th>Unit Id</th><th>Unit Name</th></tr>";
+  
+      $.getJSON("data/healthcare.json",function(data){
+  $.each(data,function(index,d){
+      table+= "<tr><td>" +d.patient +"</td><td>" +
+     d.healthCardNum +
+      "</td>"+"<td>" +d.unitId+
+      "<td>" +d.unitName+"</td></tr>";
+  })
+  $("#table1").empty();
+  $("#table1").append(table);
+      })
+  }))
+  })
+</script>
+</body>
+</html>
+
