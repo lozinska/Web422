@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+<h2>Information about banks, health, education and employees</h2>
+<button type="button" onclick="loadBankInfo()">Upload Bank Information</button>
+<button type="button" onclick="loadEducInfo()">Upload Education Information</button>
+<button type="button" onclick="loadEmplInfo()">Upload Employee Information</button>
+<button type="button" onclick="loadHealthInfo()">Upload Health Information</button>
+
+<span style="float:right;width: 20%;">
+<button type="button" onclick="loadBankInfo()"><img src="bank.jpg" width="200" height="100" id="bnk"></button>
+<button type="button" onclick="loadEducInfo()"><img src="education.jpg" width="200" height="100" id="edu"></button>
+<button type="button" onclick="loadEmplInfo()"><img src="employee.jpg" width="200" height="100" id="emp"></button>
+<button type="button" onclick="loadHealthInfo()"><img src="health.jpg" width="200" height="100" id="hlth"></button>
+
+</span>
+
+<br><br>
+<table id="table1"></table>
+</body>
+</html>
+<script>
+   function loadBankInfo() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunctionBank(this);
+    }
+  };
+  xhttp.open("GET", "bank.xml");
+  xhttp.send();
+}
+
+function loadEducInfo() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunctionEduc(this);
+    }
+  };
+  xhttp.open("GET", "education.xml");
+  xhttp.send();
+}
+  function loadEmplInfo() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunctionEmpl(this);
+    }
+  };
+  xhttp.open("GET", "data.xml");
+  xhttp.send();
+}
+function loadHealthInfo() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunctionHealth(this);
+    }
+  };
+  xhttp.open("GET", "health.xml");
+  xhttp.send();
+}
+
+function myFunctionBank(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Bank Name</th><th>Location</th><th>Number of Customers</th><th>Year Established</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i < x.length; i++) { 
+    table += "<tr><td>" +x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +"</td><td>" +
+    x[i].getElementsByTagName("LOCATION")[0].childNodes[0].nodeValue +
+    "</td>"+"<td>" +x[i].getElementsByTagName("NUMCUST")[0].childNodes[0].nodeValue+
+    "<td>" +x[i].getElementsByTagName("ESTABLISH")[0].childNodes[0].nodeValue+"</td></tr>";
+  }
+  document.getElementById("table1").innerHTML = table;
+}
+
+function myFunctionEduc(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Average GPA</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i < x.length; i++) { 
+    table += "<tr><td>" +x[i].getElementsByTagName("STDFNAME")[0].childNodes[0].nodeValue +"</td><td>" +
+    x[i].getElementsByTagName("STDLNAME")[0].childNodes[0].nodeValue +
+    "</td>"+"<td>" +x[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue+
+    "<td>" +x[i].getElementsByTagName("GPA")[0].childNodes[0].nodeValue+"</td></tr>";
+  }
+  document.getElementById("table1").innerHTML = table;
+}
+
+function myFunctionEmpl(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+
+  var table="<tr><th>Name</th><th>Employeeid</th><th>Managerid</th><th>Position</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i < x.length; i++) { 
+    table += "<tr><td>" +x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +"</td><td>" +
+    x[i].getElementsByTagName("EMPLOYEEID")[0].childNodes[0].nodeValue +
+    "</td>"+"<td>" +x[i].getElementsByTagName("MANAGERID")[0].childNodes[0].nodeValue+
+    "<td>" +x[i].getElementsByTagName("POSITION")[0].childNodes[0].nodeValue+"</td></tr>";
+  }
+
+  document.getElementById("table1").innerHTML = table;
+}
+
+function myFunctionHealth(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Patient Name</th><th>Health Card</th><th>Unit Id</th><th>Unit Name</th></tr>";
+  var x = xmlDoc.getElementsByTagName("HEALTH");
+  for (i = 0; i < x.length; i++) { 
+    table += "<tr><td>" +x[i].getElementsByTagName("PATIENT")[0].childNodes[0].nodeValue +"</td><td>" +
+    x[i].getElementsByTagName("HEALTHCARDNUM")[0].childNodes[0].nodeValue +
+    "</td>"+"<td>" +x[i].getElementsByTagName("UNITID")[0].childNodes[0].nodeValue+
+    "<td>" +x[i].getElementsByTagName("UNITNAME")[0].childNodes[0].nodeValue+"</td></tr>";
+  }
+  document.getElementById("table1").innerHTML = table;
+}
+
+</script>
